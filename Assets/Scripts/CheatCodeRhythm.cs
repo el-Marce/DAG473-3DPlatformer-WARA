@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using TMPro; // Importante para TextMeshPro
+using TMPro;
 using System.Collections;
 
 public class CheatCodeRhythm : MonoBehaviour
@@ -28,11 +28,11 @@ public class CheatCodeRhythm : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Click detectado por Input");
             RegisterClick();
-        }
+        }*/
     }
 
 
