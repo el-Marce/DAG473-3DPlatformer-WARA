@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float power = 100f;
+    public float power = 10f;
     public float lifeTime = 4f;
 
     private Rigidbody bulletRb;
