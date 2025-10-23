@@ -33,3 +33,9 @@ public class ObjetivoAI : MonoBehaviour
         }
     }
 }
+
+//detectar enemigo
+//acciones enemigo patrullar enemigo
+//para el pretullaje usar puntos de referencia o puntos aleatorios, toamr en cuenta que no salga de un area o que quiera ir a partes del mapa que no deberia ir
+//implementar un area para que el enemigo detecte si el jugador esta cerca o salio del rango del enemigo
+//el nav mesh debe ser paa todo el mapa no solo una area
