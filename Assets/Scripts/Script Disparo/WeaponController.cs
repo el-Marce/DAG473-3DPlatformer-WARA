@@ -20,7 +20,7 @@ public class WeaponController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        shooting = Input.GetKeyDown(KeyCode.M);
+        shooting = Input.GetKeyDown(KeyCode.F);
 
         if(shooting)
         {

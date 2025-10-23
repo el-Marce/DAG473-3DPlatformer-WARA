@@ -1272,6 +1272,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9063064949377433099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4503827492566826933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4507917293995852716}
+  m_Layer: 8
+  m_Name: ShootSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4507917293995852716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503827492566826933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3792914239864893036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4517410462701317991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1765,7 @@ GameObject:
   - component: {fileID: 3340959075517599495}
   - component: {fileID: 2484821894314209652}
   - component: {fileID: 4749688548799760284}
+  - component: {fileID: 2393459255600770503}
   m_Layer: 8
   m_Name: PlayerWara
   m_TagString: Player
@@ -1757,6 +1789,7 @@ Transform:
   - {fileID: 2495840588810583461}
   - {fileID: 757289313205668158}
   - {fileID: 1415865299452611727}
+  - {fileID: 4507917293995852716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6701861126680127955
@@ -1985,6 +2018,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2393459255600770503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212769108936764656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753e6e532961e31418095cbaf060a9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpawm: {fileID: 4507917293995852716}
+  shooting: 0
+  bulletPrefab: {fileID: 8707404457172122288, guid: 46307c79dd193604188e9cbb6993a25b,
+    type: 3}
 --- !u!1 &6566564438885686113
 GameObject:
   m_ObjectHideFlags: 0

@@ -832,6 +832,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4507917293995852716, guid: e73a78a9f9d3e914587218530c375caf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.779
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507917293995852716, guid: e73a78a9f9d3e914587218530c375caf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.227
+      objectReference: {fileID: 0}
     - target: {fileID: 6212769108936764656, guid: e73a78a9f9d3e914587218530c375caf,
         type: 3}
       propertyPath: m_Name
@@ -842,7 +852,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3792914239864893036, guid: e73a78a9f9d3e914587218530c375caf,
         type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 1316282590}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73a78a9f9d3e914587218530c375caf, type: 3}
