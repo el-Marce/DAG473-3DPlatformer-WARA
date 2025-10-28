@@ -207,7 +207,11 @@
     },
     "com.unity.toolchain.win-x86_64-linux-x86_64": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "version": "2.0.10",
+=======
+      "version": "2.0.11",
+>>>>>>> Stashed changes
 =======
       "version": "2.0.11",
 >>>>>>> Stashed changes
