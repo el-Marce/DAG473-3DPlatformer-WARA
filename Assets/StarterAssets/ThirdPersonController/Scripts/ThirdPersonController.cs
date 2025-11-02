@@ -75,6 +75,7 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        public DogFollower dogFollower;
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -281,72 +282,68 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            if (Grounded)
-            {
-                // reset the fall timeout timer
-                _fallTimeoutDelta = FallTimeout;
-
-                // update animator if using character
-                if (_hasAnimator)
+                if (Grounded)
                 {
-                    _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
-                }
+                    _fallTimeoutDelta = FallTimeout;
 
-                // stop our velocity dropping infinitely when grounded
-                if (_verticalVelocity < 0.0f)
-                {
-                    _verticalVelocity = -2f;
-                }
-
-                // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-                {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        _animator.SetBool(_animIDJump, false);
+                        _animator.SetBool(_animIDFreeFall, false);
                     }
-                }
 
-                // jump timeout
-                if (_jumpTimeoutDelta >= 0.0f)
-                {
-                    _jumpTimeoutDelta -= Time.deltaTime;
-                }
-            }
-            else
-            {
-                // reset the jump timeout timer
-                _jumpTimeoutDelta = JumpTimeout;
+                    if (_verticalVelocity < 0.0f)
+                    {
+                        _verticalVelocity = -2f;
+                    }
 
-                // fall timeout
-                if (_fallTimeoutDelta >= 0.0f)
-                {
-                    _fallTimeoutDelta -= Time.deltaTime;
+                    // --- 👇 Aquí es donde realmente inicia el salto ---
+                    if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                    {
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                        if (_hasAnimator)
+                        {
+                            _animator.SetBool(_animIDJump, true);
+                        }
+
+                        // 🟩 AVISAR AL PERRO QUE SALTE TAMBIÉN
+                        if (dogFollower != null)
+                        {
+                            dogFollower.SaltarConJugador(transform.position);
+                        }
+                    }
+                    // --- ↑↑↑ Fin del cambio ---
+
+                    if (_jumpTimeoutDelta >= 0.0f)
+                    {
+                        _jumpTimeoutDelta -= Time.deltaTime;
+                    }
                 }
                 else
                 {
-                    // update animator if using character
-                    if (_hasAnimator)
+                    _jumpTimeoutDelta = JumpTimeout;
+
+                    if (_fallTimeoutDelta >= 0.0f)
                     {
-                        _animator.SetBool(_animIDFreeFall, true);
+                        _fallTimeoutDelta -= Time.deltaTime;
                     }
+                    else
+                    {
+                        if (_hasAnimator)
+                        {
+                            _animator.SetBool(_animIDFreeFall, true);
+                        }
+                    }
+
+                    _input.jump = false;
                 }
 
-                // if we are not grounded, do not jump
-                _input.jump = false;
+                if (_verticalVelocity < _terminalVelocity)
+                {
+                    _verticalVelocity += Gravity * Time.deltaTime;
+                }
             }
-
-            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-            if (_verticalVelocity < _terminalVelocity)
-            {
-                _verticalVelocity += Gravity * Time.deltaTime;
-            }
-        }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
