@@ -1766,6 +1766,7 @@ GameObject:
   - component: {fileID: 2484821894314209652}
   - component: {fileID: 4749688548799760284}
   - component: {fileID: 2393459255600770503}
+  - component: {fileID: 3210338923671299829}
   m_Layer: 8
   m_Name: PlayerWara
   m_TagString: Player
@@ -2034,6 +2035,26 @@ MonoBehaviour:
   shooting: 0
   bulletPrefab: {fileID: 8707404457172122288, guid: 46307c79dd193604188e9cbb6993a25b,
     type: 3}
+--- !u!114 &3210338923671299829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212769108936764656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c84380f7b58cfb478e54b37cb4f5997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saludMaxima: 200
+  saludActual: 0
+  vidas: 3
+  iconosVidas: []
+  barraDeVida: {fileID: 0}
+  posicionInicial: {x: -7.117675, y: 0.22, z: 9.667}
+  tiempoReaparicion: 3
+  textoGameOver: {fileID: 0}
 --- !u!1 &6566564438885686113
 GameObject:
   m_ObjectHideFlags: 0
