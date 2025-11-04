@@ -5,33 +5,116 @@ using UnityEngine.AI;
 
 public class ObjetivoAI : MonoBehaviour
 {
-    public Transform Target;
-    public float DistanciaAtaque;
-    private NavMeshAgent m_Agent;
-    private float m_Distancia;
+    public NavMeshAgent Enemigo;
+
+    [Header("Movimiento")]
+    public float Velocidad;
+    public bool Persiguiendo;
+    public float Rango;
+    public float Distancia;
+    public float DistanciaExtra = 2;
 
 
-    // Start is called before the first frame update
-    void Start()
+    public Transform objetivo;
+
+    [Header("Objetivos")]
+    public float velocidadPatrullaje;
+    public Transform[] Objetivos;
+    Transform ObjetivoEspecifico;
+    float DistanciaObjetivoEspecifico;
+
+
+    [Header("Ataque")]
+    public float DistanciaAtaque = 1.5f; // rango para atacar
+    public float tiempoEntreAtaques = 1.2f; // segundos entre ataques
+    private float temporizadorAtaque = 0f;
+    public bool atacando;
+
+    //header
+
+    private void Start()
     {
-        m_Agent = GetComponent<NavMeshAgent>();
+        ObjetivoEspecifico = Objetivos[Random.Range(0, Objetivos.Length)];
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        m_Distancia = Vector3.Distance(m_Agent.transform.position, Target.position);
-        if (m_Distancia < DistanciaAtaque)
+        Distancia = Vector3.Distance(Enemigo.transform.position, objetivo.position);
+
+        if (Distancia < Rango)
         {
-            m_Agent.isStopped = true;
-            Debug.Log("EnemigoAtaco.");
+            Persiguiendo = true;
         }
-        else
+        else if (Distancia > Rango + DistanciaExtra)
         {
-            m_Agent.isStopped = false;
-            m_Agent.destination = Target.position;
+            Persiguiendo = false;
         }
+
+
+        if(Persiguiendo == false)
+        {
+            Enemigo.speed = 0;
+            patrullaje();
+        }
+        else if (Persiguiendo == true)
+           {
+            Enemigo.speed = Velocidad;
+            Enemigo.SetDestination(objetivo.position);
+
+            // Verificar si está en rango de ataque
+            if (Distancia <= DistanciaAtaque)
+            {
+                // Mira hacia el jugador
+                //Enemigo.transform.LookAt(objetivo);
+
+                // Detiene el movimiento para atacar
+                Enemigo.speed = 0;
+
+                // Contador para evitar ataques continuos
+                temporizadorAtaque -= Time.deltaTime;
+                if (temporizadorAtaque <= 0f)
+                {
+                    Ataque();
+                    temporizadorAtaque = tiempoEntreAtaques;
+                }
+            }
+        }
+
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Enemigo.transform.position, Rango);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(Enemigo.transform.position, DistanciaAtaque);
+    }
+
+    private void patrullaje()
+    {
+        DistanciaObjetivoEspecifico = Vector3.Distance(transform.position, ObjetivoEspecifico.position);
+
+        if (DistanciaObjetivoEspecifico < 2)
+        {
+            ObjetivoEspecifico = Objetivos[Random.Range(0, Objetivos.Length)];
+        }
+
+        Enemigo.destination = ObjetivoEspecifico.position;
+        Enemigo.speed = velocidadPatrullaje;
+
+    }
+
+    public void Ataque()
+    {
+        Debug.Log("Atacando");
+        //lógica para atacar
+        //encontrar codigo de salud del jugador y restar vida
+        //objetivo.GetComponent<Salud>().RecibirDaño(10);
+
+    }
+
 }
 
 //detectar enemigo

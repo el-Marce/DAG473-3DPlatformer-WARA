@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Plugins/Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638942395452873018
+  lastModified: 638943498742482941
   FileSizes:
   - Name: 
     Value: 834
@@ -98,7 +98,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2142056373316664033}
   cacheVersion: 131849
-  cacheTime: 638942395452873018
+  cacheTime: 638943498742482941
   SerializableEventsDict:
   - key: event:/MUSIC/MainTheme
     index: 0
@@ -119,6 +119,6 @@ MonoBehaviour:
   Path: Assets/Plugins/Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638942395452873018
+  lastModified: 638943498742472937
   FileSizes: []
   Exists: 1
