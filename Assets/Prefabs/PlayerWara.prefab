@@ -1767,6 +1767,7 @@ GameObject:
   - component: {fileID: 4749688548799760284}
   - component: {fileID: 2393459255600770503}
   - component: {fileID: 3210338923671299829}
+  - component: {fileID: 3219497057141652780}
   m_Layer: 8
   m_Name: PlayerWara
   m_TagString: Player
@@ -1884,6 +1885,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  dogFollower: {fileID: 0}
 --- !u!114 &3340959075517599495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,6 +2057,21 @@ MonoBehaviour:
   posicionInicial: {x: -7.117675, y: 0.22, z: 9.667}
   tiempoReaparicion: 3
   textoGameOver: {fileID: 0}
+--- !u!114 &3219497057141652780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212769108936764656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8fd9d5a7caa4449829298e3dfb7d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangoRecoleccion: 5
+  teclaRecolectar: 101
+  totalOvejasRecolectadas: 0
 --- !u!1 &6566564438885686113
 GameObject:
   m_ObjectHideFlags: 0

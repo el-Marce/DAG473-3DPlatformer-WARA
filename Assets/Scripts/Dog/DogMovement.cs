@@ -37,7 +37,7 @@ public class DogFollower : MonoBehaviour
     {
         if (player == null) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
             EstadoSeguir = !EstadoSeguir;
 
         if (EstadoSeguir && !isJumping)

@@ -9,7 +9,7 @@ public class RecolectarOvejas : MonoBehaviour
     [SerializeField] public int totalOvejasRecolectadas = 0;
     //[SerializeField] public bool llevandoOvejas = false;
     
-    private Ovejas ovejasActuales = null;
+    Ovejas ovejasActuales = null;
    
     // Update is called once per frame
     void Update()
@@ -19,6 +19,8 @@ public class RecolectarOvejas : MonoBehaviour
             ovejasActuales.Recoger();
             //llevandoOvejas = true;
             totalOvejasRecolectadas++;
+
+            GameManager.instance.SumarOvejas();
             Debug.Log("Ovejas recolectadas: " + totalOvejasRecolectadas);
             ovejasActuales = null;
         }
@@ -29,17 +31,22 @@ public class RecolectarOvejas : MonoBehaviour
         if(other.CompareTag("Oveja"))
         {
             ovejasActuales = other.GetComponent<Ovejas>();
+            ovejasActuales.MostrarIndicador(true);
             Debug.Log("Precione E para recoger Oveja.");
         }
     }
 
     private void OnTriggerExit(Collider other) 
     {
-        if(other.CompareTag("Oveja"))
+        if (other.CompareTag("Oveja"))
         {
-            if(ovejasActuales != null && other.gameObject == ovejasActuales.gameObject)
+            Ovejas oveja = other.GetComponent<Ovejas>();
+            if (oveja != null)
+                oveja.MostrarIndicador(false);
+
+            if (ovejasActuales != null && other.gameObject == ovejasActuales.gameObject)
             {
-                Debug.Log("Saliste del rango de recoleccion de la oveja.");
+                Debug.Log("Saliste del rango de recolección de la oveja.");
                 ovejasActuales = null;
             }
         }
