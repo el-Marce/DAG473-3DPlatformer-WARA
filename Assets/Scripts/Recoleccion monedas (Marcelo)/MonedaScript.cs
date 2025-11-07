@@ -23,7 +23,7 @@ public class MonedaScript : MonoBehaviour
         {
             // Ejemplo de lógica básica
             GameManager.instance.SumarMonedas(valor);
-            //FMODUnity.RuntimeManager.PlayOneShot("event:/Moneda/Recoleccion");
+            SoundManager.instance.reproducirMoneda();
             Destroy(gameObject);
         }
     }

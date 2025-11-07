@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3269217053030048463}
   - component: {fileID: -4398919297681155705}
   - component: {fileID: 5561193366088458093}
+  - component: {fileID: 5342353408533842714}
   m_Layer: 0
   m_Name: Oveja
   m_TagString: Oveja
@@ -307,6 +308,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 1.67, z: 1.63}
   m_Center: {x: -1.5, y: -0.11, z: 1.2}
+--- !u!114 &5342353408533842714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125300287584476880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -608888868
+      Data2: 1270079735
+      Data3: -837873509
+      Data4: 1863882553
+    Path: event:/ENTORNO/OvejasBeee
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 18.9
 --- !u!1 &5277040095119975349
 GameObject:
   m_ObjectHideFlags: 0

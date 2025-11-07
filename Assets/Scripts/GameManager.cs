@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TMP_Text textoTodasLasOvejas;
     private int totalOvejasEnEscena;
 
+
+    public bool ovejasFaltantes
+    {
+        get { return ovejasTotales < totalOvejasEnEscena; }
+    }
     private void Awake()
     {
         // Patrón Singleton

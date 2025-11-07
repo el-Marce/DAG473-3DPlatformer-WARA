@@ -76,6 +76,9 @@ namespace StarterAssets
         public bool LockCameraPosition = false;
 
         public DogFollower dogFollower;
+
+        public bool caminando = false;
+        public bool caminandoAnterior = false;
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -272,6 +275,28 @@ namespace StarterAssets
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
+
+            bool nuevoEstado = Grounded && _speed > 0.1f;
+
+            if (nuevoEstado != caminandoAnterior)
+            {
+                caminando = nuevoEstado;
+
+                if (caminando)
+                {
+                    SoundManager.instance.reproducirPasosJugador();
+                    Debug.Log("Reproduciendo pasos del jugador.");
+                }
+                else
+                {
+                    SoundManager.instance.detenerPasosJugador();
+                    Debug.Log("Deteniendo pasos del jugador.");
+                }
+            }
+
+            caminandoAnterior = nuevoEstado;
+
+
             // update animator if using character
             if (_hasAnimator)
             {
@@ -300,8 +325,11 @@ namespace StarterAssets
                     // --- 👇 Aquí es donde realmente inicia el salto ---
                     if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                     {
-                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
+                        _input.jump = false;
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    
+                        SoundManager.instance.ReproducirSalto();
                         if (_hasAnimator)
                         {
                             _animator.SetBool(_animIDJump, true);
@@ -312,7 +340,8 @@ namespace StarterAssets
                         {
                             dogFollower.SaltarConJugador(transform.position);
                         }
-                    }
+
+                }
                     // --- ↑↑↑ Fin del cambio ---
 
                     if (_jumpTimeoutDelta >= 0.0f)

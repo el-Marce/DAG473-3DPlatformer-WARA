@@ -765,11 +765,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8944336655422409497, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2049587797}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+--- !u!1 &785223457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 785223456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &828316674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1197,7 @@ GameObject:
   - component: {fileID: 1123936207}
   - component: {fileID: 1123936206}
   - component: {fileID: 1123936214}
+  - component: {fileID: 1123936215}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1355,6 +1367,37 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1123936215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123936205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1496564552
+      Data2: 1109997946
+      Data3: -1455558767
+      Data4: 379873161
+    Path: event:/ENTORNO/PerroLadrridos
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1267631770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2359,131 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1923271728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923271730}
+  - component: {fileID: 1923271729}
+  - component: {fileID: 1923271731}
+  m_Layer: 0
+  m_Name: SoundsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1923271729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923271728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1729545976
+      Data2: 1170210032
+      Data3: -1432867653
+      Data4: -1708440869
+    Path: event:/AMBIENTE/Viento
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1923271730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923271728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.48, y: 4.24, z: 6.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923271731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923271728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff64d40b84cd1164784ac1fbca86d3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recogerMoneda:
+    Guid:
+      Data1: -1596366944
+      Data2: 1272768663
+      Data3: 266422404
+      Data4: -1044169484
+    Path: event:/ENTORNO/RecolectarMoneda
+  recogerOveja:
+    Guid:
+      Data1: 461341758
+      Data2: 1080150727
+      Data3: -1696996478
+      Data4: -530901980
+    Path: event:/ENTORNO/RecogerOveja
+  todasLasOvejas:
+    Guid:
+      Data1: -1866550386
+      Data2: 1204746605
+      Data3: 760560548
+      Data4: 1329508476
+    Path: event:/ENTORNO/TodasLasOvejas
+  pasos:
+    Guid:
+      Data1: -929854153
+      Data2: 1220909154
+      Data3: -2123938416
+      Data4: -1819276965
+    Path: event:/JUGADOR/Pasos
+  salto:
+    Guid:
+      Data1: 1762992219
+      Data2: 1091083761
+      Data3: -1225271913
+      Data4: -1136271303
+    Path: event:/JUGADOR/Salto
+  dano:
+    Guid:
+      Data1: 1463488330
+      Data2: 1082540392
+      Data3: 1207443099
+      Data4: 527886568
+    Path: event:/JUGADOR/Dano
+  muerte:
+    Guid:
+      Data1: -1396052300
+      Data2: 1282980570
+      Data3: 1710842815
+      Data4: 698204615
+    Path: event:/JUGADOR/Muerte
 --- !u!114 &1951167632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2402,6 +2570,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 785223456}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2049587797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785223457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!64 &2061647924
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3065,3 +3247,4 @@ SceneRoots:
   - {fileID: 2107388937}
   - {fileID: 233998054}
   - {fileID: 297790365}
+  - {fileID: 1923271730}

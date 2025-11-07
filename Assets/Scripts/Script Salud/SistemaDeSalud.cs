@@ -54,10 +54,12 @@ public class SistemaDeSalud : MonoBehaviour
     {
         if (estaMuerto) return;
 
+        SoundManager.instance.ReproducirDano();
         saludActual -= cantidad;
 
         if (saludActual <= 0)
         {
+            SoundManager.instance.ReproducirMuerte();
             saludActual = 0;
             vidas--;
             ActualizarVidasUI();

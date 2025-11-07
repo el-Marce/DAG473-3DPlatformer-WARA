@@ -5,8 +5,7 @@ public class MenuController : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene("Playground");
-        Debug.Log("Prueba github");
+        SceneManager.LoadScene("Nivel0");
     }
 
     public void Options()

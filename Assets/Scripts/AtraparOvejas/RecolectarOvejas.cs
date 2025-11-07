@@ -21,6 +21,7 @@ public class RecolectarOvejas : MonoBehaviour
             totalOvejasRecolectadas++;
 
             GameManager.instance.SumarOvejas();
+            SoundManager.instance.reproducirRecogerOveja();
             Debug.Log("Ovejas recolectadas: " + totalOvejasRecolectadas);
             ovejasActuales = null;
         }
