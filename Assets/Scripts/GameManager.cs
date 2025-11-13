@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour    
+public class GameManager : MonoBehaviour
 {
+    public List<GameObject> ovejasRecolectadas = new List<GameObject>();
+    //private List<Ovejas> ovejasEntregadas = new List<Ovejas>();
+
+
+    public ZonaSegura zonaSegura;
     public static GameManager instance;
 
     [Header("Contador de monedas")]
@@ -13,20 +18,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TMP_Text textoMonedas;
 
     [Header("Contador de ovejas")]
-    public int ovejasTotales = 0;   
-    [SerializeField] public TMP_Text textoOvejas;
-
-    [SerializeField] public TMP_Text textoTodasLasOvejas;
+    public int ovejasRecogidas = 0;
     private int totalOvejasEnEscena;
+    public int ovejasEnZonaSegura;
+    [SerializeField] public TMP_Text textoOvejas;
+    [SerializeField] public TMP_Text textoTodasLasOvejas;
 
+    public bool jugadorConOvejas
+    {
+        get { return ovejasRecogidas > 0; }
+    }
 
     public bool ovejasFaltantes
     {
-        get { return ovejasTotales < totalOvejasEnEscena; }
+        get { return ovejasRecogidas < totalOvejasEnEscena; }
     }
+
     private void Awake()
     {
-        // Patrón Singleton
         if (instance == null)
         {
             instance = this;
@@ -38,42 +47,91 @@ public class GameManager : MonoBehaviour
         CalcularTotalOvejas();
         ActualizarUI();
     }
+
     public void Update()
     {
         ActualizarUI();
     }
+
     private void CalcularTotalOvejas()
     {
-        // Busca todos los objetos con el tag "Oveja"
         totalOvejasEnEscena = GameObject.FindGameObjectsWithTag("Oveja").Length;
         Debug.Log("Total de ovejas en escena: " + totalOvejasEnEscena);
     }
+
     public void SumarMonedas(int cantidad)
     {
         monedasTotales += cantidad;
-        //Debug.Log("Monedas totales: " + monedasTotales);
     }
-    public void SumarOvejas()
+
+    public void RegistrarOveja(GameObject oveja)
     {
-        ovejasTotales++;
-        //Debug.Log("Ovejas totales: " + ovejasTotales);
-        if (ovejasTotales >= totalOvejasEnEscena)
-        {
-            StartCoroutine(MostrarTextoTemporal(textoTodasLasOvejas, 5f));
-        }
+        if (!ovejasRecolectadas.Contains(oveja))
+            ovejasRecolectadas.Add(oveja);
     }
+
+    public void RecogerOvejas()
+    {
+        ovejasRecogidas++;
+    }
+
+    public void PerderOvejas()
+    {
+        ovejasRecogidas = 0;
+
+        foreach (var o in ovejasRecolectadas)
+        {
+            o.SetActive(true);
+            o.GetComponent<Ovejas>().atrapada = false; 
+        }
+        ovejasRecolectadas.Clear();
+    }
+
+    public int EntregarOvejas()
+    {
+        int entregadas = ovejasRecogidas;
+        if (jugadorConOvejas)
+        {
+            ovejasEnZonaSegura += ovejasRecogidas;
+            ovejasRecogidas = 0;
+
+            foreach (var o in ovejasRecolectadas)
+            {
+                o.transform.position = zonaSegura.transform.position;
+                o.SetActive(true);
+            }
+            ovejasRecolectadas.Clear();
+
+
+            Debug.Log($"Ovejas en zona segura: {ovejasEnZonaSegura}/{totalOvejasEnEscena}");
+
+            if (ovejasEnZonaSegura >= totalOvejasEnEscena)
+            {
+                GanarJuego();
+            }
+        }
+        return entregadas;
+    }
+
+    void GanarJuego()
+    {
+        StartCoroutine(MostrarTextoTemporal(textoTodasLasOvejas, 5f));
+        Debug.Log("¡Ganaste el juego!");
+    }
+
     private IEnumerator MostrarTextoTemporal(TMP_Text texto, float duracion)
     {
         texto.gameObject.SetActive(true);
         yield return new WaitForSeconds(duracion);
         texto.gameObject.SetActive(false);
     }
+
     private void ActualizarUI()
     {
         if (textoMonedas != null)
             textoMonedas.text = $"Monedas: {monedasTotales}";
 
         if (textoOvejas != null)
-            textoOvejas.text = $"Ovejas: {ovejasTotales}/{totalOvejasEnEscena}";
+            textoOvejas.text = $"Ovejas: {ovejasEnZonaSegura}/{totalOvejasEnEscena}";
     }
 }

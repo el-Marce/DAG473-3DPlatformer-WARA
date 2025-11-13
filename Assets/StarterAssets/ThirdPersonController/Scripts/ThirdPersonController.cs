@@ -285,12 +285,12 @@ namespace StarterAssets
                 if (caminando)
                 {
                     SoundManager.instance.reproducirPasosJugador();
-                    Debug.Log("Reproduciendo pasos del jugador.");
+                    //Debug.Log("Reproduciendo pasos del jugador.");
                 }
                 else
                 {
                     SoundManager.instance.detenerPasosJugador();
-                    Debug.Log("Deteniendo pasos del jugador.");
+                    //Debug.Log("Deteniendo pasos del jugador.");
                 }
             }
 

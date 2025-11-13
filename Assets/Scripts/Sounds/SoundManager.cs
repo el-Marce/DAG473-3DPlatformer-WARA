@@ -56,7 +56,7 @@ public class SoundManager : MonoBehaviour
     }
     public void reproducirPasosJugador()
     {
-        Debug.Log("Reproduciendo pasos del jugador otra vez.");
+        //Debug.Log("Reproduciendo pasos del jugador otra vez.");
         reproducirPasos.start();
     }
     public void detenerPasosJugador()

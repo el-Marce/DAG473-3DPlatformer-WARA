@@ -4,45 +4,56 @@ using UnityEngine;
 
 public class ZonaSegura : MonoBehaviour
 {
-     [Header("Numero de ovejas para ganar")]
-    public int OvejasRequeridas = 3; 
-    private int OvejaEnZona = 0;
+    [Header("Configuración del Corral")]
+    [SerializeField] private Transform puntoDeEntrega;
+    [SerializeField] private float radioDeDistribucion = 2f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Oveja"))
+        if (other.CompareTag("Player"))
         {
-            OvejaEnZona++;
-            Debug.Log("Oveja dentro. Total en zona: " + OvejaEnZona);
-
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.isKinematic = true;
-            other.transform.position = new Vector3(
-                transform.position.x, 
-                other.transform.position.y, 
-                transform.position.z
-            );
-
-            CheckWin();    
+            GameManager.instance.EntregarOvejas();
+        }
+        else if (other.CompareTag("Oveja"))
+        {
+            EntregarOvejaEnPosicion(other.gameObject);
         }
     }
-    void CheckWin()
+
+    public void EntregarOvejaEnPosicion(GameObject oveja)
     {
-        if (OvejaEnZona >= OvejasRequeridas)
+        // Primero actualizar estado de la oveja
+        Ovejas scriptOveja = oveja.GetComponent<Ovejas>();
+        if (scriptOveja != null)
+            scriptOveja.Entregar();
+
+        // Posicionar en el corral
+        if (puntoDeEntrega != null)
         {
-            Debug.Log("Ganaste el juego");
+            Vector3 posicionAleatoria = CalcularPosicionEnCorral();
+            oveja.transform.position = posicionAleatoria;
         }
-    }                           
+    }
+
+    private Vector3 CalcularPosicionEnCorral()
+    {
+        Vector3 posicionBase = puntoDeEntrega != null ? puntoDeEntrega.position : transform.position;
+
+        float angulo = Random.Range(0f, 360f);
+        float distancia = Random.Range(0f, radioDeDistribucion);
+
+        float x = posicionBase.x + distancia * Mathf.Cos(angulo * Mathf.Deg2Rad);
+        float z = posicionBase.z + distancia * Mathf.Sin(angulo * Mathf.Deg2Rad);
+
+        return new Vector3(x, posicionBase.y, z);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (puntoDeEntrega != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(puntoDeEntrega.position, radioDeDistribucion);
+        }
+    }
 }

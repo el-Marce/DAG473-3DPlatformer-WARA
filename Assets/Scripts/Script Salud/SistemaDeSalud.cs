@@ -60,8 +60,8 @@ public class SistemaDeSalud : MonoBehaviour
         if (saludActual <= 0)
         {
             SoundManager.instance.ReproducirMuerte();
-            saludActual = 0;
             vidas--;
+            GameManager.instance.PerderOvejas();
             ActualizarVidasUI();
 
             if (vidas > 0)

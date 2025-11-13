@@ -20,9 +20,9 @@ public class RecolectarOvejas : MonoBehaviour
             //llevandoOvejas = true;
             totalOvejasRecolectadas++;
 
-            GameManager.instance.SumarOvejas();
+            GameManager.instance.RecogerOvejas();
             SoundManager.instance.reproducirRecogerOveja();
-            Debug.Log("Ovejas recolectadas: " + totalOvejasRecolectadas);
+            //Debug.Log("Ovejas recolectadas: " + totalOvejasRecolectadas);
             ovejasActuales = null;
         }
     }
@@ -33,7 +33,7 @@ public class RecolectarOvejas : MonoBehaviour
         {
             ovejasActuales = other.GetComponent<Ovejas>();
             ovejasActuales.MostrarIndicador(true);
-            Debug.Log("Precione E para recoger Oveja.");
+            //Debug.Log("Precione E para recoger Oveja.");
         }
     }
 
@@ -47,7 +47,7 @@ public class RecolectarOvejas : MonoBehaviour
 
             if (ovejasActuales != null && other.gameObject == ovejasActuales.gameObject)
             {
-                Debug.Log("Saliste del rango de recolección de la oveja.");
+                //Debug.Log("Saliste del rango de recolección de la oveja.");
                 ovejasActuales = null;
             }
         }
