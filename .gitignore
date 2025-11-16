@@ -79,3 +79,4 @@ crashlytics-build.properties
 /Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 /Assets/Plugins/FMOD/Cache
 *.md
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
