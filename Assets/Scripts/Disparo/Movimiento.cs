@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    public float speed = 5f;
+    public float power = 10f;
+    public float lifeTime = 4f;
 
-    void Update()
+    private Rigidbody rb;
+
+    void Start()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        rb = GetComponent<Rigidbody>();
 
-        Vector3 move = new Vector3(x, 0, z);
-        transform.Translate(move * speed * Time.deltaTime, Space.World);
+        rb.velocity = Vector3.zero;
+        rb.AddForce(transform.forward * power, ForceMode.VelocityChange);
+        Destroy(gameObject, lifeTime);
     }
 }
