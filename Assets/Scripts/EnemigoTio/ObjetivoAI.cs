@@ -12,7 +12,7 @@ public class ObjetivoAI : MonoBehaviour
     public bool Persiguiendo;
     public float Rango;
     public float Distancia;
-    public float DistanciaExtra = 2;
+    public float DistanciaExtra;
 
 
     public Transform objetivo;
