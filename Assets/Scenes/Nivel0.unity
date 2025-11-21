@@ -1286,6 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1600431131}
+  pushForce: 2
   SeguirDistancia: 2
   VelocidadMover: 3.5
   EstadoSeguir: 1
@@ -1306,7 +1307,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2576,8 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17208db52f966a45b38a573c229374e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovejas: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
-  oveja: {fileID: -4398919297681155705, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
+  ovejasRecolectadas: []
   zonaSegura: {fileID: 529921080}
   monedasTotales: 0
   textoMonedas: {fileID: 828316676}
