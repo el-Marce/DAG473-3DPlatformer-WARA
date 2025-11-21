@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class DogFollower : MonoBehaviour
+public class DogFollowerTMP : MonoBehaviour
 {
     
     public Transform player;// detecta jugador
