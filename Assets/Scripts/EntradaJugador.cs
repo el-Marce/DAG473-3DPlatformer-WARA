@@ -45,6 +45,11 @@ public class EntradaJugador : MonoBehaviour
 
         a_seguir.performed += ctx => perro.EstadoSeguir = true;
         a_quieto.performed += ctx => perro.EstadoSeguir = false;
+        a_atacar.performed += ctx => 
+        {
+          if (perro != null && perro.combatePerro != null)
+          perro.combatePerro.Atacar();
+        };
     }
     private void OnDisable()
     {
