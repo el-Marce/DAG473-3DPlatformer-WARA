@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     public GameObject menuPausaUI;
+    public MonoBehaviour scriptMovimiento; 
 
     private bool estaPausado = false;
 
@@ -17,13 +18,13 @@ public class MenuPausa : MonoBehaviour
                 PausarJuego();
         }
     }
-
     public void PausarJuego()
     {
         menuPausaUI.SetActive(true);
-
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None; // 🔓 Para usar el mouse
+        Cursor.lockState = CursorLockMode.None;
+
+        scriptMovimiento.enabled = false;    // 👈 Esto desactiva movimiento
 
         Time.timeScale = 0f;
         estaPausado = true;
@@ -32,14 +33,14 @@ public class MenuPausa : MonoBehaviour
     public void ReanudarJuego()
     {
         menuPausaUI.SetActive(false);
-
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked; // 🔒 Regresa al control 3D
+        Cursor.lockState = CursorLockMode.Locked;
+
+        scriptMovimiento.enabled = true;     // 👈 Volver a activar
 
         Time.timeScale = 1f;
         estaPausado = false;
     }
-
     public void ReiniciarNivel()
     {
         Time.timeScale = 1f;
