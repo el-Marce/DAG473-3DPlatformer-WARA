@@ -16,16 +16,7 @@ public class EntradaJugador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      a_atacar = acciones.FindAction("Attack");
-      a_seguir = acciones.FindAction("Follow");
-      a_quieto = acciones.FindAction("Stay");
-
-        a_atacar.Enable();
-        a_quieto.Enable();
-        a_seguir.Enable();
-
-        a_seguir.performed += ctx => perro.EstadoSeguir = true;
-        a_quieto.performed += ctx => perro.EstadoSeguir = false;
+      
     }
 
     // Update is called once per frame

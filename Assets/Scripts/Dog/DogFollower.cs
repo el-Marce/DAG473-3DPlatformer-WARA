@@ -52,7 +52,7 @@ public class DogFollower : MonoBehaviour
             }
             if (combatePerro != null)
             {
-                combatePerro.Atacar();
+               combatePerro.Atacar();
             }
         }
     }

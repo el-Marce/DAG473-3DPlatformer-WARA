@@ -19,7 +19,7 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
-
+        public DogFollower perro;
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
@@ -42,6 +42,24 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+	    public void OnDogAttack(InputValue value)
+		{
+			if (perro != null && perro.combatePerro != null)
+			perro.combatePerro.Atacar();
+		}
+
+		public void OnDogFollow(InputValue value)
+		{
+			if (perro != null)
+			perro.EstadoSeguir = true;
+		}
+
+		public void OnDogStay(InputValue value)
+		{
+			if (perro != null)
+			perro.EstadoSeguir = false;
 		}
 #endif
 

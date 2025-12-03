@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "StarterAssets",
     "maps": [
         {
@@ -45,6 +46,33 @@
                     "name": "ADS",
                     "type": "PassThrough",
                     "id": "29da97ce-0984-4a8b-82c4-8f8b12f54b8f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Follow",
+                    "type": "Button",
+                    "id": "c72d47e3-d2f8-4d17-b177-9b1b845278a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stay",
+                    "type": "Button",
+                    "id": "095e0f53-05b9-41c0-b0ec-d4056b33ca46",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "46f47e7d-d515-47f2-9383-a489445382e0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -247,6 +275,39 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "ADS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "683dadeb-e155-49e6-8a2c-020ddb553e05",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Follow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9371bda-597b-4de1-b913-b58a8459d797",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stay",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "093dd40c-11a0-4365-94b9-d5c6657e2b97",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
