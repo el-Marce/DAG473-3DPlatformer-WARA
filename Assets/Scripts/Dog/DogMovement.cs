@@ -44,9 +44,9 @@ public class DogFollower : MonoBehaviour
         {
             float distancia = Vector3.Distance(transform.position, player.position);
 
-            if (distancia > SeguirDistancia)
+            if (distancia > SeguirDistancia && agent.isOnNavMesh)
                 agent.SetDestination(player.position);
-            else
+            else if(agent.isOnNavMesh)
                 agent.ResetPath();
         }
     }
