@@ -1,58 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using TMPro; // si usas TextMeshPro
 
 public class CanvasUIController : MonoBehaviour
 {
     [Header("Fade del panel principal")]
     public CanvasGroup panel;
-    public float waitDuration = 2f;    // Tiempo en negro antes del fade
+    public float waitDuration = 2f;    // Tiempo antes del fade
     public float fadeDuration = 5f;    // Duración del fade in
 
-    [Header("Texto de 'Presiona Espacio'")]
-    public TMP_Text textoEspacio;       // Arrastra aquí tu texto
-    public float blinkSpeed = 1f;       // Velocidad del parpadeo
+    [Header("Animación inicial de la imagen")]
+    public RectTransform imagen;       // Aquí arrastras tu Image (la ilustración)
+    public float animDuration = 1.5f;  // Duración de la animación
+    public float zoomAmount = 1.05f;   // Pequeño zoom (1.0 = sin zoom)
+    public Vector2 moveOffset = new Vector2(10f, 10f); // Movimiento sutil
 
     private Coroutine currentFade;
-    private Coroutine blinkCoroutine;
 
     void Start()
     {
         panel.alpha = 0f;
 
-        if (textoEspacio != null)
-        {
-            textoEspacio.gameObject.SetActive(true);
-            textoEspacio.alpha = 0f; // invisible al inicio
-        }
-
-        currentFade = StartCoroutine(FadeSequence());
+        // Comienza la animación de imagen + fade
+        currentFade = StartCoroutine(FullSequence());
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Detiene cualquier animación y muestra todo al instante
             if (currentFade != null)
                 StopCoroutine(currentFade);
 
-            if (blinkCoroutine != null)
-                StopCoroutine(blinkCoroutine);
-
             panel.alpha = 1f;
-            if (textoEspacio != null)
-                textoEspacio.gameObject.SetActive(false);
+
+            if (imagen != null)
+            {
+                imagen.localScale = Vector3.one;
+                imagen.anchoredPosition = Vector2.zero;
+            }
         }
     }
 
-    private IEnumerator FadeSequence()
+    private IEnumerator FullSequence()
     {
-        // 1️⃣ Espera inicial con texto parpadeando
-        if (textoEspacio != null)
-            blinkCoroutine = StartCoroutine(BlinkText());
+        // 1️⃣ ANIMACIÓN INICIAL DE MOVIMIENTO / ZOOM
+        if (imagen != null)
+            yield return StartCoroutine(AnimateImage());
 
+        // 2️⃣ Espera inicial antes del fade
         float t = 0f;
         while (t < waitDuration)
         {
@@ -63,7 +59,7 @@ public class CanvasUIController : MonoBehaviour
                 yield break;
         }
 
-        // 2️⃣ Fade in del panel
+        // 3️⃣ Fade in del panel
         t = 0f;
         while (t < fadeDuration)
         {
@@ -77,21 +73,27 @@ public class CanvasUIController : MonoBehaviour
                 yield break;
             }
         }
-
-        // 3️⃣ Oculta el texto de “Presiona Espacio” al finalizar
-        if (blinkCoroutine != null)
-            StopCoroutine(blinkCoroutine);
-        if (textoEspacio != null)
-            textoEspacio.gameObject.SetActive(false);
     }
 
-    private IEnumerator BlinkText()
+
+    private IEnumerator AnimateImage()
     {
-        textoEspacio.alpha = 0f;
-        while (true)
+        Vector3 startScale = Vector3.one;
+        Vector3 endScale = Vector3.one * zoomAmount;
+
+        Vector2 startPos = Vector2.zero;
+        Vector2 endPos = moveOffset;
+
+        float t = 0f;
+
+        while (t < animDuration)
         {
-            // Parpadeo con seno suave (0 → 1 → 0)
-            textoEspacio.alpha = Mathf.Abs(Mathf.Sin(Time.time * blinkSpeed));
+            t += Time.deltaTime;
+            float lerp = t / animDuration;
+
+            imagen.localScale = Vector3.Lerp(startScale, endScale, lerp);
+            imagen.anchoredPosition = Vector2.Lerp(startPos, endPos, lerp);
+
             yield return null;
         }
     }

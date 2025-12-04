@@ -3,14 +3,21 @@ using UnityEngine.SceneManagement;
 
 public static class SaveSystemSlots
 {
-    // Guarda posición + escena en slot (1..3)
     public static void SaveGame(Transform player, int slot)
     {
         PlayerPrefs.SetFloat($"Slot{slot}_PlayerX", player.position.x);
         PlayerPrefs.SetFloat($"Slot{slot}_PlayerY", player.position.y);
         PlayerPrefs.SetFloat($"Slot{slot}_PlayerZ", player.position.z);
 
-        PlayerPrefs.SetString($"Slot{slot}_Scene", SceneManager.GetActiveScene().name);
+
+    PlayerPrefs.SetString($"Slot{slot}_Scene", SceneManager.GetActiveScene().name);
+
+        PlayerPrefs.SetInt($"Slot{slot}_Monedas", GameManager.instance.monedasTotales);
+        PlayerPrefs.SetInt($"Slot{slot}_OvejasEnZonaSegura", GameManager.instance.ovejasEnZonaSegura);
+
+        SistemaDeSalud salud = player.GetComponent<SistemaDeSalud>();
+        PlayerPrefs.SetInt($"Slot{slot}_Salud", salud != null ? salud.saludActual : 100);
+
         PlayerPrefs.SetInt($"Slot{slot}_Used", 1);
         PlayerPrefs.Save();
 
@@ -33,10 +40,40 @@ public static class SaveSystemSlots
         {
             if (!SlotExists(s)) return s;
         }
-        return -1; // ninguno vacío
+        return -1;
     }
 
-    // Cargar: guarda el slot a cargar y suscribe OnSceneLoaded
+    public static void DeleteLastUsedSlot()
+    {
+        int lastUsed = -1;
+        for (int slot = 3; slot >= 1; slot--)
+        {
+            if (SlotExists(slot))
+            {
+                lastUsed = slot;
+                break;
+            }
+        }
+
+        if (lastUsed == -1)
+        {
+            Debug.Log("No hay partidas para borrar.");
+            return;
+        }
+
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerX");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerY");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerZ");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Scene");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Monedas");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_OvejasEnZonaSegura");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Salud");
+        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Used");
+
+        PlayerPrefs.Save();
+        Debug.Log($"Partida borrada del slot {lastUsed}");
+    }
+
     public static void LoadGame(int slot)
     {
         if (!SlotExists(slot))
@@ -47,12 +84,10 @@ public static class SaveSystemSlots
 
         PlayerPrefs.SetInt("SlotToLoad", slot);
 
-        // Asegurarse de no suscribir varias veces
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         string sceneName = PlayerPrefs.GetString($"Slot{slot}_Scene");
-        Debug.Log("Cargando escena: " + sceneName);
         SceneManager.LoadScene(sceneName);
     }
 
@@ -75,6 +110,11 @@ public static class SaveSystemSlots
         if (player != null)
         {
             player.transform.position = pos;
+
+            SistemaDeSalud salud = player.GetComponent<SistemaDeSalud>();
+            if (salud != null)
+                salud.saludActual = PlayerPrefs.GetInt($"Slot{slot}_Salud", salud.saludMaxima);
+
             Debug.Log($"Partida del slot {slot} cargada correctamente");
         }
         else
@@ -82,39 +122,14 @@ public static class SaveSystemSlots
             Debug.LogWarning("No se encontró GameObject con tag 'Player' al cargar partida.");
         }
 
-        PlayerPrefs.DeleteKey("SlotToLoad"); // opcional: limpiar
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.monedasTotales = PlayerPrefs.GetInt($"Slot{slot}_Monedas", 0);
+            GameManager.instance.ovejasEnZonaSegura = PlayerPrefs.GetInt($"Slot{slot}_OvejasEnZonaSegura", 0);
+        }
+
+        PlayerPrefs.DeleteKey("SlotToLoad");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    public static void DeleteLastUsedSlot()
-    {
-        int lastUsed = -1;
-
-        // Recorre del 3 al 1 para encontrar el último slot guardado
-        for (int slot = 3; slot >= 1; slot--)
-        {
-            if (SlotExists(slot))
-            {
-                lastUsed = slot;
-                break;
-            }
-        }
-
-        if (lastUsed == -1)
-        {
-            Debug.Log("No hay partidas para borrar.");
-            return;
-        }
-
-        // Eliminar claves del slot
-        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerX");
-        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerY");
-        PlayerPrefs.DeleteKey($"Slot{lastUsed}_PlayerZ");
-        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Scene");
-        PlayerPrefs.DeleteKey($"Slot{lastUsed}_Used");
-
-        PlayerPrefs.Save();
-
-        Debug.Log($"Partida borrada del slot {lastUsed}");
-    }
-
 }
+
