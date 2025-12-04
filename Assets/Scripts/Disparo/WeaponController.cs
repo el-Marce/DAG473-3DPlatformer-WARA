@@ -18,7 +18,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         shooting = Input.GetKeyDown(KeyCode.F);
 

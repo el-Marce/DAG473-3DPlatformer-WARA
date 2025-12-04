@@ -37,7 +37,7 @@ public class MenuPausa : MonoBehaviour
     public void ReanudarJuego()
     {
         menuPausaUI.SetActive(false);
-        Cursor.visible = false;
+        //Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         scriptMovimiento.enabled = true;
@@ -49,7 +49,7 @@ public class MenuPausa : MonoBehaviour
     public void PausarJuego()
     {
         menuPausaUI.SetActive(true);
-        Cursor.visible = true;
+        //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
         scriptMovimiento.enabled = false;
