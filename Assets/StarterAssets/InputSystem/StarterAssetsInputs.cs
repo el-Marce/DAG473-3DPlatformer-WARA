@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public DogFollower perro;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -94,5 +95,21 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
-	
+	 public void OnDogAttack(InputValue value)
+    {
+        if (perro != null && perro.combatePerro != null)
+            perro.combatePerro.Atacar();
+    }
+
+    public void OnDogFollow(InputValue value)
+    {
+        if (perro != null)
+            perro.EstadoSeguir = true;
+    }
+
+    public void OnDogStay(InputValue value)
+    {
+        if (perro != null)
+            perro.EstadoSeguir = false;
+    }
 }

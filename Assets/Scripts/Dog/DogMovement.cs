@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
+<<<<<<< Updated upstream
 public class DogFollowerTMP : MonoBehaviour
+=======
+public class DogFollowerOld: MonoBehaviour
+>>>>>>> Stashed changes
 {
     
     public Transform player;// detecta jugador
