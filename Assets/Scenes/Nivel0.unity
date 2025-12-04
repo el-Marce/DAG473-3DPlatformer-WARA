@@ -899,22 +899,32 @@ PrefabInstance:
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.76623887
+      value: 0.766239
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.034020755
+      value: -0.03402076
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6410232
+      value: -0.6410231
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.028457325
+      value: -0.028457321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
@@ -926,13 +936,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7034373808417286436, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
@@ -1187,6 +1208,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0049485858
       objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
@@ -1197,13 +1228,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7034373808417286436, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
@@ -1591,6 +1633,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.024147663
       objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
@@ -1601,13 +1653,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7034373808417286436, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
@@ -3361,22 +3424,32 @@ PrefabInstance:
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6210646
+      value: 0.6210645
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0054251743
+      value: 0.0054251733
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7837107
+      value: 0.7837108
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006850758
+      value: -0.0068507586
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
@@ -3393,8 +3466,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
@@ -8587,6 +8666,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.022870826
       objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
@@ -8597,8 +8686,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
@@ -8737,12 +8837,12 @@ PrefabInstance:
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74808234
+      value: 0.7480823
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.004405169
+      value: 0.0044052387
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
@@ -8752,7 +8852,17 @@ PrefabInstance:
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.003911821
+      value: -0.003911883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
@@ -8764,13 +8874,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7034373808417286436, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
@@ -9190,22 +9311,32 @@ PrefabInstance:
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.456763
+      value: 0.4567632
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.030648846
+      value: 0.030648697
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8870653
+      value: 0.8870651
       objectReference: {fileID: 0}
     - target: {fileID: 3231222457429605826, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.059527453
+      value: -0.05952753
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269217053030048463, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4160578072325922382, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
         type: 3}
@@ -9217,8 +9348,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oveja
       objectReference: {fileID: 0}
+    - target: {fileID: 5125300287584476880, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9058478164060411426, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cdea7d946c6e24ab8d2f1a4a214581, type: 3}
