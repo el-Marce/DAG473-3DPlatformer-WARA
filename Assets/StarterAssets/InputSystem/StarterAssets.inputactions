@@ -1,5 +1,4 @@
 {
-    "version": 1,
     "name": "StarterAssets",
     "maps": [
         {
@@ -52,14 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Follow",
-                    "type": "Button",
-                    "id": "c72d47e3-d2f8-4d17-b177-9b1b845278a6",
-=======
                     "name": "Attack",
                     "type": "Button",
-                    "id": "e210a9a7-e9e2-4551-83ed-cda4632d2f15",
+                    "id": "d4ae50bc-d942-4d90-b7bd-5792dc0bb0f8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -68,8 +62,7 @@
                 {
                     "name": "Follow",
                     "type": "Button",
-                    "id": "7c9f58e8-45f4-4335-839e-0adaa3703dd1",
->>>>>>> Stashed changes
+                    "id": "45ed1609-51e1-4cc4-93d5-9fffeab4a993",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -78,20 +71,7 @@
                 {
                     "name": "Stay",
                     "type": "Button",
-<<<<<<< Updated upstream
-                    "id": "095e0f53-05b9-41c0-b0ec-d4056b33ca46",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "46f47e7d-d515-47f2-9383-a489445382e0",
-=======
-                    "id": "450b73c3-6369-496d-bc27-8788569149df",
->>>>>>> Stashed changes
+                    "id": "21be6fb5-3cb6-4cde-bd7a-3a3ef2bb9e96",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -299,10 +279,7 @@
                 },
                 {
                     "name": "",
-<<<<<<< Updated upstream
-                    "id": "683dadeb-e155-49e6-8a2c-020ddb553e05",
-=======
-                    "id": "121712af-e64d-4a8f-9a10-b5de5b329213",
+                    "id": "25699ff8-70a5-4d39-bf34-3040e4b977a1",
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
@@ -313,19 +290,7 @@
                 },
                 {
                     "name": "",
-                    "id": "bde0b5cd-3568-4c79-9a50-d01f8bba77c1",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4bda98b1-da46-4475-b1fd-46860e59dd8f",
->>>>>>> Stashed changes
+                    "id": "dd4c4c6c-8006-4580-8405-0f8e7faf3aab",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
@@ -336,11 +301,7 @@
                 },
                 {
                     "name": "",
-<<<<<<< Updated upstream
-                    "id": "b9371bda-597b-4de1-b913-b58a8459d797",
-=======
-                    "id": "33fc4fb7-8e65-4c4b-8dca-d89782561175",
->>>>>>> Stashed changes
+                    "id": "1a0671d5-a7da-4b97-b2ae-479db5580658",
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
@@ -348,20 +309,6 @@
                     "action": "Stay",
                     "isComposite": false,
                     "isPartOfComposite": false
-<<<<<<< Updated upstream
-                },
-                {
-                    "name": "",
-                    "id": "093dd40c-11a0-4365-94b9-d5c6657e2b97",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-=======
->>>>>>> Stashed changes
                 }
             ]
         }

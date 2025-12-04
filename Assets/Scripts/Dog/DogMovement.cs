@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-<<<<<<< Updated upstream
-public class DogFollowerTMP : MonoBehaviour
-=======
-public class DogFollowerOld: MonoBehaviour
->>>>>>> Stashed changes
+public class DogFollowerOld : MonoBehaviour
 {
     
     public Transform player;// detecta jugador
     private NavMeshAgent agent;// ai de seguimiento
-    public float pushForce = 2f;
 
     //Movimiento valores
     public float SeguirDistancia = 2f;
@@ -35,8 +30,6 @@ public class DogFollowerOld: MonoBehaviour
         }
 
         agent.speed = VelocidadMover;
-
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -50,9 +43,9 @@ public class DogFollowerOld: MonoBehaviour
         {
             float distancia = Vector3.Distance(transform.position, player.position);
 
-            if (distancia > SeguirDistancia)
+            if (distancia > SeguirDistancia && agent.isOnNavMesh)
                 agent.SetDestination(player.position);
-            else
+            else if(agent.isOnNavMesh)
                 agent.ResetPath();
         }
     }
@@ -87,21 +80,5 @@ public class DogFollowerOld: MonoBehaviour
         transform.position = fin;
         agent.enabled = true;
         isJumping = false;
-    }
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            CharacterController cc = other.GetComponent<CharacterController>();
-            if (cc != null)
-            {
-             Vector3 pushDirection = (other.transform.position - transform.position);
-              pushDirection.y = 0;
-
-              pushDirection.Normalize();
-
-              cc.Move(pushDirection * pushForce * Time.deltaTime);
-            }
-        }
     }
 }

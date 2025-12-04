@@ -43,17 +43,12 @@ public class DogFollower : MonoBehaviour
 
         if (EstadoSeguir)
         {
-            float distancia = Vector3.Distance(transform.position, jugador.position);
-            if (distancia > distanciaSeguir)
-            navAgent.SetDestination(jugador.position);
-            else
-            {
-                navAgent.ResetPath();
-            }
-            if (combatePerro != null)
-            {
-               combatePerro.Atacar();
-            }
+         float distancia = Vector3.Distance(transform.position, jugador.position);
+
+        if (distancia > distanciaSeguir)
+         navAgent.SetDestination(jugador.position);
+        else
+         navAgent.ResetPath();
         }
     }
     void DetectarSaltoDelJugador()
