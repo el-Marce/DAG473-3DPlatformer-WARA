@@ -49,10 +49,11 @@ public class SoundManager : MonoBehaviour
             RuntimeManager.PlayOneShot(recogerOveja);
             return;
         }
-        else
-        {
-            RuntimeManager.PlayOneShot(todasLasOvejas);
-        }
+    }
+    public void reproducirTodasLasOvejas()
+    {
+        if (todasLasOvejas.IsNull) return;
+        RuntimeManager.PlayOneShot(todasLasOvejas);
     }
     public void reproducirPasosJugador()
     {

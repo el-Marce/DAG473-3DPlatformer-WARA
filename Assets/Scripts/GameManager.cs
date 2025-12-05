@@ -115,8 +115,9 @@ public class GameManager : MonoBehaviour
 
     void GanarJuego()
     {
-        StartCoroutine(MostrarTextoTemporal(textoTodasLasOvejas, 5f));
+        //StartCoroutine(MostrarTextoTemporal(textoTodasLasOvejas, 5f));
         Debug.Log("¡Ganaste el juego!");
+        SoundManager.instance.reproducirTodasLasOvejas();
     }
 
     private IEnumerator MostrarTextoTemporal(TMP_Text texto, float duracion)
