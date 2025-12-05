@@ -1,36 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
     public float power = 10f;
     public float lifeTime = 4f;
-    public float daño = 10f;
 
-    private Rigidbody rb;
+    private Rigidbody bulletRb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * power;
+        bulletRb = GetComponent<Rigidbody>();
+        bulletRb.velocity = transform.forward * power;
+
+        // Destruye la bala automáticamente después de "lifeTime" segundos
         Destroy(gameObject, lifeTime);
     }
-
-    public void OnTriggerEnter(Collider collision)
-    {
-        // Verificar el tag del objeto golpeado
-        if (collision.CompareTag("enemigo"))
-        {
-            // Obtener salud en el objeto padre del enemigo
-            EnemigoSalud enemigo = collision.GetComponent<EnemigoSalud>();
-
-            if (enemigo != null)
-            {
-                enemigo.RecibirDaño(daño);
-            }
-            Destroy(gameObject);
-        }
-
-    }
 }
-
-
