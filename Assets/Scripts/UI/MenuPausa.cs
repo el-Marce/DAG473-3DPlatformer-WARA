@@ -10,6 +10,9 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         if (menuPausaUI != null)
             menuPausaUI.SetActive(false);
     }
@@ -36,11 +39,13 @@ public class MenuPausa : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
     }
-
     public void ReanudarJuego()
     {
         if (menuPausaUI != null)
             menuPausaUI.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         scriptMovimiento.enabled = true;
         estaPausado = false;
@@ -51,7 +56,11 @@ public class MenuPausa : MonoBehaviour
         if (menuPausaUI != null)
             menuPausaUI.SetActive(true);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         scriptMovimiento.enabled = false;
         estaPausado = true;
     }
+
 }

@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         if (cambiadorDeCamara.aiming)
         {
