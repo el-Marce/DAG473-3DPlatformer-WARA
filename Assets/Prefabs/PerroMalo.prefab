@@ -70,23 +70,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d73cb1b268ce684cb45540ab2cf8ce5,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2289500976861822979}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d73cb1b268ce684cb45540ab2cf8ce5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6059226392040520458}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d73cb1b268ce684cb45540ab2cf8ce5,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6287740925557083069}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d73cb1b268ce684cb45540ab2cf8ce5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3666289994203975022}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d73cb1b268ce684cb45540ab2cf8ce5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8052762792256278206}
   m_SourcePrefab: {fileID: 100100000, guid: 2d73cb1b268ce684cb45540ab2cf8ce5, type: 3}
 --- !u!1 &2938986326833036972 stripped
 GameObject:
@@ -94,55 +82,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2596335835868677117}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &2289500976861822979
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938986326833036972}
-  m_Enabled: 1
-  m_AgentTypeID: -334000983
-  m_Radius: 0.69
-  m_Speed: 0
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 1.35
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &6059226392040520458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938986326833036972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637eb80e06cc5ea449b39a8b62b270b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemigo: {fileID: 0}
-  Velocidad: 2
-  Persiguiendo: 0
-  Rango: 17
-  Distancia: 0
-  DistanciaExtra: 3
-  objetivo: {fileID: 0}
-  velocidadPatrullaje: 1
-  Objetivos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  DistanciaAtaque: 1.5
-  tiempoEntreAtaques: 1.2
-  atacando: 0
 --- !u!65 &6287740925557083069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,16 +130,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8052762792256278206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938986326833036972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d91faee3c9f0b40928ae52748ab62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 20
