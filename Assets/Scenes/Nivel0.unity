@@ -10210,6 +10210,21 @@ PrefabInstance:
       objectReference: {fileID: 82050097}
     - target: {fileID: 3359329910370603760, guid: e73a78a9f9d3e914587218530c375caf,
         type: 3}
+      propertyPath: MoveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359329910370603760, guid: e73a78a9f9d3e914587218530c375caf,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359329910370603760, guid: e73a78a9f9d3e914587218530c375caf,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359329910370603760, guid: e73a78a9f9d3e914587218530c375caf,
+        type: 3}
       propertyPath: dogFollower
       value: 
       objectReference: {fileID: 1123936209}
