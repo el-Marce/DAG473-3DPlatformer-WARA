@@ -8,6 +8,7 @@ TagManager:
   - Oveja
   - enemigo
   - Moneda
+  - Ove
   layers:
   - Default
   - TransparentFX
