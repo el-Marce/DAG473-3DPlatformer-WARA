@@ -79,6 +79,14 @@ namespace StarterAssets
 
         public bool caminando = false;
         public bool caminandoAnterior = false;
+
+        // NEW: Variables para el movimiento de la plataforma
+        private Vector3 _platformVelocity = Vector3.zero;
+        private Transform _currentPlatformTransform = null;
+        private Vector3 _lastPlatformPosition;
+        // END NEW
+
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -154,6 +162,9 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            // NEW: Inicializar la posición anterior de la plataforma
+            _lastPlatformPosition = Vector3.zero;
         }
 
         private void Update()
@@ -162,8 +173,70 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
+
+            // NEW: Detección y cálculo de la velocidad de la plataforma ANTES de Move()
+            CalculatePlatformMovement();
+
             Move();
         }
+
+
+        private void CalculatePlatformMovement()
+        {
+            // La detección más segura es usar la propiedad 'isGrounded' del CharacterController
+            // y buscar un componente de movimiento.
+
+            if (_controller.isGrounded)
+            {
+                // Disparamos un Raycast (o Physics.SphereCast) hacia abajo para detectar el objeto bajo los pies
+                // y obtener su Transform.
+                RaycastHit hit;
+                Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
+                float rayDistance = _controller.height / 2f + 0.2f;
+
+                if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayDistance, GroundLayers, QueryTriggerInteraction.Ignore))
+                {
+                    Transform platform = hit.transform;
+
+                    // Si el objeto bajo nosotros no es la misma plataforma que antes
+                    if (_currentPlatformTransform != platform)
+                    {
+                        // 1. Nueva Plataforma detectada
+                        _currentPlatformTransform = platform;
+                        _lastPlatformPosition = _currentPlatformTransform.position;
+                    }
+
+                    // 2. Si tenemos una plataforma y su posición ha cambiado
+                    if (_currentPlatformTransform != null)
+                    {
+                        // Calcular el cambio de posición (delta)
+                        Vector3 currentPlatformPosition = _currentPlatformTransform.position;
+                        _platformVelocity = (currentPlatformPosition - _lastPlatformPosition) / Time.deltaTime;
+
+                        // Actualizar la última posición de la plataforma
+                        _lastPlatformPosition = currentPlatformPosition;
+                    }
+                    else
+                    {
+                        // No estamos sobre nada que se mueva activamente
+                        _platformVelocity = Vector3.zero;
+                    }
+                }
+                else
+                {
+                    // Estamos en el suelo (según GroundedCheck), pero no detectamos una plataforma debajo.
+                    _currentPlatformTransform = null;
+                    _platformVelocity = Vector3.zero;
+                }
+            }
+            else
+            {
+                // No estamos en el suelo, por lo tanto, no hay movimiento de plataforma.
+                _currentPlatformTransform = null;
+                _platformVelocity = Vector3.zero;
+            }
+        }
+
 
         private void LateUpdate()
         {
@@ -271,12 +344,52 @@ namespace StarterAssets
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            // 1. Calcular el vector de movimiento horizontal del jugador basado en la entrada.
+            Vector3 playerMovement = targetDirection.normalized * (_speed * Time.deltaTime);
+
+            // 2. Calcular el vector de movimiento vertical (gravedad/salto).
+            Vector3 verticalMovement = new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime;
+
+            // 3. Calcular el movimiento de la plataforma (velocidad inyectada).
+            Vector3 platformMovement = _platformVelocity * Time.deltaTime;
+
+            // 4. Inicializar el movimiento final solo con la gravedad/salto.
+            Vector3 finalMovement = verticalMovement;
+
+            // Verificar si estamos siendo transportados por una plataforma móvil.
+            bool isCarriedByPlatform = _controller.isGrounded && _platformVelocity != Vector3.zero;
+
+            if (isCarriedByPlatform)
+            {
+                // A. FIX DE ESTABILIDAD: Añadir un pequeño empuje hacia abajo constante (fricción simulada)
+                finalMovement += Vector3.down * 0.1f;
+
+                // B. Añadir el movimiento de la plataforma, que es el control principal ahora.
+                finalMovement += platformMovement;
+
+                // C. Si el jugador está activo (presionando teclas), le permitimos moverse sobre la plataforma.
+                // Si input.move es cero, el movimiento horizontal del jugador se ANULA.
+                if (_input.move != Vector2.zero)
+                {
+                    finalMovement += playerMovement;
+                }
+            }
+            else
+            {
+                // Si no estamos en una plataforma móvil, usamos el movimiento normal del jugador.
+                finalMovement += playerMovement;
+            }
+
+            // move the player: Combinar los vectores de movimiento en una única llamada a Move().
+            _controller.Move(finalMovement);
 
 
-            bool nuevoEstado = Grounded && _speed > 0.1f;
+            // --- Lógica de animación y audio de pasos ---
+
+            // FIX para el sonido: El sonido de pasos ahora solo se activa si el jugador
+            // está presionando activamente una tecla, ignorando el movimiento de la plataforma.
+            bool isPlayerInputtingMovement = _input.move.sqrMagnitude > 0.01f;
+            bool nuevoEstado = Grounded && isPlayerInputtingMovement;
 
             if (nuevoEstado != caminandoAnterior)
             {
